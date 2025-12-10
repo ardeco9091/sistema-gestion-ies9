@@ -47,7 +47,7 @@ def validar():
     return render_template('index.html', mensaje=mensaje, color=color, email_probado=email)
 
 # --- PARTE 2: LA API (LO TÉCNICO OCULTO) ---
-# Esta parte no afecta lo visual, pero suma puntos si el profesor la prueba.
+
 @app.route('/api/alumno/<dni>', methods=['GET'])
 def api_buscar(dni):
     resultados = buscar_alumno(dni, BD_ALUMNOS)
