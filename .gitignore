@@ -1,0 +1,12 @@
+# Archivos compilados de Python (la basura que genera la PC)
+__pycache__/
+*.pyc
+
+# Archivos de entorno y variables (por seguridad)
+.env
+venv/
+env/
+
+# Archivos de sistema (Mac/Windows)
+.DS_Store
+Thumbs.db

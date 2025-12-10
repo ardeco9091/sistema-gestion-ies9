@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-5 mb-4">
+        <div class="card p-4">
+            <h4 class="mb-3">✅ Validador de Correos</h4>
+            <form action="/validar" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">Ingrese Email Institucional:</label>
+                    <input type="email" name="email" class="form-control" placeholder="alumno@ies9..." value="{{ email_probado }}" required>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Verificar Calidad</button>
+            </form>
+            {% if mensaje %}
+            <div class="alert alert-{{ color }} mt-3" role="alert">
+                {{ mensaje }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-md-5 mb-4">
+        <div class="card p-4">
+            <h4 class="mb-3">🔍 Buscar Alumno</h4>
+            <form action="/buscar" method="GET">
+                <div class="mb-3">
+                    <label class="form-label">Buscar por Nombre o DNI:</label>
+                    <input type="text" name="q" class="form-control" placeholder="Ej: Perez o 30123456" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Buscar en Base de Datos</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,51 @@
+id,nombre,dni,email,carrera,nota1,nota2,promedio,condicion
+1,Elena Alvarez,42188178,elena.alvarez178@gmail.com,Tec. en Desarrollo de Software,5,4,4.5,Regular
+2,Luis Torres,32900203,luis.torres203@ies9-juj.infd.edu.ar,Tec. en Turismo,6,9,7.5,Promocionado
+3,Juan Alvarez,40007227,juan.alvarez227@ies9-juj.infd.edu.ar,Tec. en Turismo,6,8,7.0,Promocionado
+4,Elena Perez,38603621,elena.perez621@ies9-juj.infd.edu.ar,Tec. en Gestion,5,8,6.5,Regular
+5,Miguel Sosa,44309275,miguel.sosa275@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,10,9,9.5,Promocionado
+6,Luis Sosa,32932051,luis.sosa051@ies9-juj.infd.edu.ar,Tec. en Turismo,1,5,3.0,Libre
+7,Lucia Alvarez,36585629,lucia.alvarez629@gmail.com,Tec. en Gestion,2,8,5.0,Regular
+8,Miguel Fernandez,37205643,miguel.fernandez643@outlook.com,Tec. en Desarrollo de Software,1,5,3.0,Libre
+9,Sofia Torres,44066576,sofia.torres576@ies9-juj.infd.edu.ar,Tec. en Gestion,2,9,5.5,Regular
+10,Ana Diaz,32566394,ana.diaz394@outlook.com,Tec. en Gestion,2,6,4.0,Regular
+11,Luis Gomez,43759313,luis.gomez313@ies9-juj.infd.edu.ar,Tec. en Enfermeria,3,10,6.5,Regular
+12,Pedro Diaz,30222957,pedro.diaz957@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,5,9,7.0,Promocionado
+13,Ana Fernandez,45839248,ana.fernandez248@ies9-juj.infd.edu.ar,Tec. en Gestion,10,10,10.0,Promocionado
+14,Maria Romero,37812643,maria.romero643@ies9-juj.infd.edu.ar,Tec. en Gestion,8,3,5.5,Regular
+15,Luis Sosa,31429737,luis.sosa737@outlook.com,Tec. en Gestion,4,9,6.5,Regular
+16,Pedro Perez,37560989,pedro.perez989@ies9-juj.infd.edu.ar,Tec. en Gestion,4,1,2.5,Libre
+17,Maria Ruiz,44785184,maria.ruiz184@ies9-juj.infd.edu.ar,Tec. en Turismo,4,10,7.0,Promocionado
+18,Pedro Sosa,34490607,pedro.sosa607@ies9-juj.infd.edu.ar,Tec. en Turismo,1,4,2.5,Libre
+19,Carlos Torres,38955728,carlos.torres728@gmail.com,Tec. en Desarrollo de Software,10,3,6.5,Regular
+20,Juan Perez,36053783,juan.perez783@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,2,9,5.5,Regular
+21,Elena Sosa,34953066,elena.sosa066@ies9-juj.infd.edu.ar,Tec. en Enfermeria,10,10,10.0,Promocionado
+22,Elena Lopez,32039329,elena.lopez329@ies9-juj.infd.edu.ar,Tec. en Turismo,4,10,7.0,Promocionado
+23,Sofia Diaz,44337118,sofia.diaz118@gmail.com,Tec. en Turismo,6,9,7.5,Promocionado
+24,Juan Alvarez,33704117,juan.alvarez117@outlook.com,Tec. en Desarrollo de Software,6,3,4.5,Regular
+25,Juan Perez,38534492,juan.perez492@ies9-juj.infd.edu.ar,Tec. en Enfermeria,8,1,4.5,Regular
+26,Maria Diaz,32813787,maria.diaz787@ies9-juj.infd.edu.ar,Tec. en Enfermeria,3,9,6.0,Regular
+27,Maria Ruiz,30364405,maria.ruiz405@ies9-juj.infd.edu.ar,Tec. en Turismo,5,1,3.0,Libre
+28,Miguel Fernandez,33707690,miguel.fernandez690@ies9-juj.infd.edu.ar,Tec. en Gestion,6,6,6.0,Regular
+29,Carlos Ruiz,31644407,carlos.ruiz407@ies9-juj.infd.edu.ar,Tec. en Gestion,8,7,7.5,Promocionado
+30,Sofia Ruiz,42783109,sofia.ruiz109@ies9-juj.infd.edu.ar,Tec. en Turismo,1,2,1.5,Libre
+31,Maria Gomez,41363065,maria.gomez065@ies9-juj.infd.edu.ar,Tec. en Gestion,6,5,5.5,Regular
+32,Lucia Fernandez,45000434,lucia.fernandez434@ies9-juj.infd.edu.ar,Tec. en Turismo,6,9,7.5,Promocionado
+33,Ana Ruiz,41860183,ana.ruiz183@ies9-juj.infd.edu.ar,Tec. en Enfermeria,8,10,9.0,Promocionado
+34,Luis Romero,33294326,luis.romero326@ies9-juj.infd.edu.ar,Tec. en Turismo,2,10,6.0,Regular
+35,Luis Ruiz,42886827,luis.ruiz827@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,1,2,1.5,Libre
+36,Ana Diaz,43711687,ana.diaz687@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,9,5,7.0,Promocionado
+37,Maria Lopez,37040277,maria.lopez277@gmail.com,Tec. en Enfermeria,5,7,6.0,Regular
+38,Luis Alvarez,37208785,luis.alvarez785@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,3,6,4.5,Regular
+39,Lucia Sosa,44153994,lucia.sosa994@ies9-juj.infd.edu.ar,Tec. en Turismo,5,9,7.0,Promocionado
+40,Juan Sosa,32933924,juan.sosa924@ies9-juj.infd.edu.ar,Tec. en Turismo,10,4,7.0,Promocionado
+41,Elena Romero,43796157,elena.romero157@ies9-juj.infd.edu.ar,Tec. en Turismo,5,9,7.0,Promocionado
+42,Elena Gomez,36418260,elena.gomez260@ies9-juj.infd.edu.ar,Tec. en Turismo,3,5,4.0,Regular
+43,Elena Lopez,41728720,elena.lopez720@ies9-juj.infd.edu.ar,Tec. en Turismo,5,1,3.0,Libre
+44,Maria Alvarez,39142847,maria.alvarez847@ies9-juj.infd.edu.ar,Tec. en Enfermeria,2,6,4.0,Regular
+45,Sofia Gomez,32664230,sofia.gomez230@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,8,5,6.5,Regular
+46,Carlos Lopez,36105405,carlos.lopez405@ies9-juj.infd.edu.ar,Tec. en Desarrollo de Software,7,3,5.0,Regular
+47,Pedro Alvarez,36669390,pedro.alvarez390@ies9-juj.infd.edu.ar,Tec. en Enfermeria,1,4,2.5,Libre
+48,Carlos Alvarez,39323457,carlos.alvarez457@outlook.com,Tec. en Turismo,7,6,6.5,Regular
+49,Sofia Fernandez,41835185,sofia.fernandez185@ies9-juj.infd.edu.ar,Tec. en Turismo,9,2,5.5,Regular
+50,Juan Perez,41671502,juan.perez502@ies9-juj.infd.edu.ar,Tec. en Turismo,6,7,6.5,Regular

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-12">
+        <h3>📊 Resultados para: "{{ query }}"</h3>
+        <hr>
+        {% if resultados %}
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered bg-white shadow-sm">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>DNI</th>
+                            <th>Carrera</th>
+                            <th>Email</th>
+                            <th class="text-center">Notas</th>
+                            <th class="text-center">Promedio</th>
+                            <th class="text-center">Condición</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for alumno in resultados %}
+                        <tr>
+                            <td class="align-middle">{{ alumno.nombre }}</td>
+                            <td class="align-middle">{{ alumno.dni }}</td>
+                            <td class="align-middle">{{ alumno.carrera }}</td>
+                            <td class="align-middle small text-muted">{{ alumno.email }}</td>
+                            
+                            <td class="text-center align-middle">
+                                {{ alumno.nota1 }} | {{ alumno.nota2 }}
+                            </td>
+
+                            <td class="text-center align-middle fw-bold">
+                                {{ alumno.promedio }}
+                            </td>
+
+                            <td class="text-center align-middle">
+                                {% if alumno.condicion == 'Promocionado' %}
+                                    <span class="badge rounded-pill bg-success">PROMOCIONADO</span>
+                                {% elif alumno.condicion == 'Regular' %}
+                                    <span class="badge rounded-pill bg-warning text-dark">REGULAR</span>
+                                {% else %}
+                                    <span class="badge rounded-pill bg-danger">LIBRE</span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="d-flex gap-2 mt-3">
+                <a href="/" class="btn btn-outline-primary">⬅ Nueva Búsqueda</a>
+                <button onclick="window.print()" class="btn btn-secondary">🖨️ Imprimir Analítico</button>
+            </div>
+            
+        {% else %}
+            <div class="alert alert-warning text-center p-5">
+                <h4>⚠️ No se encontraron alumnos</h4>
+                <p>Intente buscar por otro nombre o verifique el número de DNI.</p>
+                <a href="/" class="btn btn-primary mt-3">Volver a intentar</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
