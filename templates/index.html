@@ -29,8 +29,15 @@
             <form action="/buscar" method="GET">
                 <div class="mb-3">
                     <label class="form-label">Buscar por Nombre o DNI:</label>
-                    <input type="text" class="form-control form-control-lg" id="dni" name="dni" placeholder="Ej: 35578059" required>
-                    
+                    <input 
+    type="text" 
+    class="form-control form-control-lg" 
+    id="criterio" 
+    name="criterio" 
+    placeholder="Ingresa DNI, Nombre o Email..." 
+    required
+>
+
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Buscar en Base de Datos</button>
             </form>
