@@ -10,24 +10,20 @@ def index():
 
 @app.route('/resultado', methods=['POST'])
 def resultado():
-    # Recibimos el DNI del formulario
-    dni_ingresado = request.form.get('dni')
+    # CAMBIO: Ahora recibimos 'criterio' en lugar de 'dni'
+    criterio = request.form.get('criterio')
     
-    # Validación básica
-    if not dni_ingresado:
-        # Si está vacío, volvemos al inicio sin mostrar errores feos
+    if not criterio:
         return redirect(url_for('index'))
     
-    # Buscamos usando tu lógica de Pandas
-    alumno_encontrado = buscar_alumno(dni_ingresado)
+    # La función buscar_alumno ya es inteligente y sabe qué hacer
+    alumno_encontrado = buscar_alumno(criterio)
     
     if alumno_encontrado:
-        # ¡ÉXITO! Mostramos el Dashboard profesional
         return render_template('resultado.html', alumno=alumno_encontrado)
     else:
-        # Si no existe, podríamos mostrar un error, 
-        # pero por ahora volvemos al index para que sea limpio.
-        return render_template('index.html', error="Alumno no encontrado")
+        # Pasamos el error para que sepa qué buscaste
+        return render_template('index.html', error=f"No encontramos nada con: {criterio}")
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
