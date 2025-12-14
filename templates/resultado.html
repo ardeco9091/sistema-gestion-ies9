@@ -1,66 +1,77 @@
 {% extends "base.html" %}
+
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-12">
-        <h3>📊 Resultados para: "{{ query }}"</h3>
-        <hr>
-        {% if resultados %}
-            <div class="table-responsive">
-                <table class="table table-hover table-bordered bg-white shadow-sm">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Nombre</th>
-                            <th>DNI</th>
-                            <th>Carrera</th>
-                            <th>Email</th>
-                            <th class="text-center">Notas</th>
-                            <th class="text-center">Promedio</th>
-                            <th class="text-center">Condición</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for alumno in resultados %}
-                        <tr>
-                            <td class="align-middle">{{ alumno.nombre }}</td>
-                            <td class="align-middle">{{ alumno.dni }}</td>
-                            <td class="align-middle">{{ alumno.carrera }}</td>
-                            <td class="align-middle small text-muted">{{ alumno.email }}</td>
-                            
-                            <td class="text-center align-middle">
-                                {{ alumno.nota1 }} | {{ alumno.nota2 }}
-                            </td>
-
-                            <td class="text-center align-middle fw-bold">
-                                {{ alumno.promedio }}
-                            </td>
-
-                            <td class="text-center align-middle">
-                                {% if alumno.condicion == 'Promocionado' %}
-                                    <span class="badge rounded-pill bg-success">PROMOCIONADO</span>
-                                {% elif alumno.condicion == 'Regular' %}
-                                    <span class="badge rounded-pill bg-warning text-dark">REGULAR</span>
-                                {% else %}
-                                    <span class="badge rounded-pill bg-danger">LIBRE</span>
-                                {% endif %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+<div class="row justify-content-center animate__animated animate__fadeIn">
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0 h-100">
+            <div class="card-body text-center p-5">
+                <div class="mb-3">
+                    <span class="rounded-circle bg-primary text-white d-inline-flex align-items-center justify-content-center fs-2 fw-bold" style="width: 80px; height: 80px;">
+                        {{ alumno.nombre[:2].upper() }}
+                    </span>
+                </div>
+                <h2 class="h4 fw-bold text-dark">{{ alumno.nombre }}</h2>
+                <p class="text-muted mb-4">DNI: {{ alumno.dni }}</p>
+                
+                {% if alumno.condicion == 'Promocional' %}
+                    <div class="alert alert-success border-0 fw-bold rounded-pill">
+                        🚀 {{ alumno.condicion }}
+                    </div>
+                {% elif alumno.condicion == 'Regular' %}
+                    <div class="alert alert-warning border-0 fw-bold rounded-pill">
+                        ⚠️ {{ alumno.condicion }}
+                    </div>
+                {% else %}
+                    <div class="alert alert-danger border-0 fw-bold rounded-pill">
+                        🛑 {{ alumno.condicion }}
+                    </div>
+                {% endif %}
             </div>
-            
-            <div class="d-flex gap-2 mt-3">
-                <a href="/" class="btn btn-outline-primary">⬅ Nueva Búsqueda</a>
-                <button onclick="window.print()" class="btn btn-secondary">🖨️ Imprimir Analítico</button>
-            </div>
-            
-        {% else %}
-            <div class="alert alert-warning text-center p-5">
-                <h4>⚠️ No se encontraron alumnos</h4>
-                <p>Intente buscar por otro nombre o verifique el número de DNI.</p>
-                <a href="/" class="btn btn-primary mt-3">Volver a intentar</a>
-            </div>
-        {% endif %}
+        </div>
     </div>
+
+    <div class="col-md-8">
+        <div class="card shadow-lg border-0">
+            <div class="card-header bg-white border-0 py-4">
+                <h3 class="h5 fw-bold m-0 text-primary">📊 Rendimiento Académico</h3>
+            </div>
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center justify-content-between mb-4 p-3 bg-light rounded-3">
+                    <div>
+                        <small class="text-muted text-uppercase fw-bold">Promedio General</small>
+                        <div class="h2 fw-bold mb-0">{{ alumno.promedio }}</div>
+                    </div>
+                    <div class="position-relative d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; border-radius: 50%; background: conic-gradient(var(--bs-primary) {{ alumno.promedio * 10 }}%, #e9ecef 0);">
+                        <span class="bg-white rounded-circle position-absolute" style="width: 50px; height: 50px;"></span>
+                        <span class="position-absolute fw-bold text-primary">{{ alumno.promedio }}</span>
+                    </div>
+                </div>
+
+                <h6 class="text-muted text-uppercase fw-bold mb-3">Detalle de Materias</h6>
+                <div class="list-group list-group-flush">
+                    {% for materia in alumno.materias %}
+                    <div class="list-group-item border-0 px-0">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span class="fw-bold">{{ materia.nombre }}</span>
+                            <span class="fw-bold {{ 'text-success' if materia.nota >= 6 else 'text-danger' }}">{{ materia.nota }}</span>
+                        </div>
+                        <div class="progress" style="height: 8px; border-radius: 10px;">
+                            <div class="progress-bar {{ 'bg-success' if materia.nota >= 8 else ('bg-warning' if materia.nota >= 6 else 'bg-danger') }}" 
+                                 role="progressbar" 
+                                 style="width: {{ materia.nota * 10 }}%">
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-5">
+    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary rounded-pill px-4">
+        ← Realizar otra consulta
+    </a>
 </div>
 {% endblock %}
