@@ -1,60 +1,38 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, redirect, url_for
 from buscador import buscar_alumno
-from datos import BD_ALUMNOS
-from validadores import es_email_de_alumno_valido
+import os
 
 app = Flask(__name__)
 
-# --- PARTE 1: LA PÁGINA WEB (LO VISUAL) ---
+# Configuración básica
+app.config['SECRET_KEY'] = 'tu_clave_secreta_super_segura'
+
 @app.route('/')
 def index():
-    # Esto es lo que hace que se vea "bonito" (carga el HTML)
+    # Renderiza la portada de búsqueda
     return render_template('index.html')
 
-@app.route('/buscar', methods=['GET'])
-def buscar():
-    query = request.args.get('q', '')
-    if not query:
-        return render_template('index.html')
+@app.route('/resultado', methods=['POST'])
+def resultado():
+    dni = request.form.get('dni')
     
-    # Busca en el CSV y muestra la tabla con colores
-    resultados = buscar_alumno(query, BD_ALUMNOS)
-    return render_template('resultado.html', resultados=resultados, query=query)
-
-@app.route('/validar', methods=['POST'])
-def validar():
-    email = request.form.get('email', '').strip()
+    if not dni:
+        return redirect(url_for('index'))
     
-    # Lógica de Semáforo (Verde, Amarillo, Rojo)
-    tiene_formato = es_email_de_alumno_valido(email)
-    alumno_encontrado = None
+    # Usamos la nueva función inteligente con Pandas
+    alumno_encontrado = buscar_alumno(dni)
     
-    for alumno in BD_ALUMNOS:
-        if alumno['email'] == email:
-            alumno_encontrado = alumno
-            break
-    
-    if tiene_formato and alumno_encontrado:
-        mensaje = f"✅ ALUMNO ACTIVO: {alumno_encontrado['nombre']} - Condición: {alumno_encontrado.get('condicion', 'Desconocida')}"
-        color = "success" # Verde
-    elif tiene_formato and not alumno_encontrado:
-        mensaje = "⚠️ Formato válido (Institucional), pero el alumno NO figura en el listado."
-        color = "warning" # Amarillo
+    if alumno_encontrado:
+        # Si existe, mostramos el Dashboard
+        return render_template('resultado.html', alumno=alumno_encontrado)
     else:
-        mensaje = "❌ Email inválido o dominio externo."
-        color = "danger" # Rojo
+        # Si no existe, volvemos al inicio con un mensaje de error
+        # Nota: Para ver el mensaje necesitas configurar mensajes flash en el html, 
+        # pero por ahora simplemente recargará.
+        return render_template('index.html', error="Alumno no encontrado")
 
-    return render_template('index.html', mensaje=mensaje, color=color, email_probado=email)
-
-# --- PARTE 2: LA API (LO TÉCNICO OCULTO) ---
-
-@app.route('/api/alumno/<dni>', methods=['GET'])
-def api_buscar(dni):
-    resultados = buscar_alumno(dni, BD_ALUMNOS)
-    if resultados:
-        return jsonify({"status": "ok", "data": resultados})
-    else:
-        return jsonify({"status": "error", "mensaje": "No encontrado"}), 404
-
+# Esta parte es vital para que Render arranque la app
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Obtiene el puerto del entorno de Render o usa 5000 por defecto
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
