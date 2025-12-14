@@ -4,18 +4,8 @@
     <div class="col-md-5 mb-4">
         <div class="card p-4">
             <h4 class="mb-3">✅ Validador de Correos</h4>
-            <form action="{{ url_for('resultado') }}" method="POST" onsubmit="mostrarLoader()">
-    <div class="mb-4">
-        <label for="dni" class="form-label text-muted fw-bold">Número de Documento</label>
-        <input type="text" class="form-control form-control-lg border-0 shadow-sm" id="dni" name="dni" placeholder="Ej: 12345678" required autofocus>
-    </div>
-    <div class="d-grid">
-        <button type="submit" class="btn btn-primary btn-lg rounded-pill shadow-sm" id="btn-consultar">
-            <span id="btn-text">Consultar Estado</span>
-            <span id="btn-loader" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-        </button>
-    </div>
-</form>
+            <form action="/resultado" method="POST" onsubmit="mostrarLoader()">
+
 
 <script>
     function mostrarLoader() {
