@@ -13,19 +13,23 @@
                 <h2 class="h4 fw-bold text-dark">{{ alumno.nombre }}</h2>
                 <p class="text-muted mb-4">DNI: {{ alumno.dni }}</p>
                 
-                {% if alumno.condicion == 'Promocionado' %}
-                    <div class="alert alert-success border-0 fw-bold rounded-pill">
-                        🚀 {{ alumno.condicion }}
-                    </div>
-                {% elif alumno.condicion == 'Regular' %}
-                    <div class="alert alert-warning border-0 fw-bold rounded-pill">
-                        ⚠️ {{ alumno.condicion }}
-                    </div>
-                {% else %}
-                    <div class="alert alert-danger border-0 fw-bold rounded-pill">
-                        🛑 {{ alumno.condicion }}
-                    </div>
-                {% endif %}
+                {% if 'Promocionado' in alumno.condicion %}
+    <div class="alert alert-success border-0 fw-bold rounded-pill shadow-sm d-flex align-items-center justify-content-center gap-2">
+        <span class="fs-4">✅</span>
+        <span class="text-uppercase">{{ alumno.condicion }}</span>
+    </div>
+{% elif 'Regular' in alumno.condicion %}
+    <div class="alert alert-warning border-0 fw-bold rounded-pill shadow-sm d-flex align-items-center justify-content-center gap-2">
+        <span class="fs-4">⚠️</span>
+        <span class="text-uppercase">{{ alumno.condicion }}</span>
+    </div>
+{% else %}
+    <div class="alert alert-danger border-0 fw-bold rounded-pill shadow-sm d-flex align-items-center justify-content-center gap-2">
+        <span class="fs-4">❌</span>
+        <span class="text-uppercase">{{ alumno.condicion }}</span>
+    </div>
+{% endif %}
+
             </div>
         </div>
     </div>
